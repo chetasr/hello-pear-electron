@@ -1,7 +1,8 @@
 name: Electron Forge Build
 
 on:
-  workflow_dispatch:
+  push:
+    branches: [main]
 
 jobs:
   build-linux:
