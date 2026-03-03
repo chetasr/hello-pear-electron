@@ -21,7 +21,7 @@ jobs:
       - name: "Install @actions/artifact module"
         id: install-actions-artifact-module
         run: |
-          npm install @actions/artifact@1.1.2 --global
+          npm install @actions/artifact@2.3.2 --global
           echo "NODE_PATH=$(npm root --quiet -g)" >> $GITHUB_ENV
       
       - name: "Extract Actions runtime variables" 
@@ -118,7 +118,7 @@ jobs:
       - name: "Install @actions/artifact module"
         id: install-actions-artifact-module
         run: |
-          npm install @actions/artifact@1.1.2 --global
+          npm install @actions/artifact@2.3.2 --global
           echo "NODE_PATH=$(npm root --quiet -g)" >> $GITHUB_ENV
       
       - name: "Extract Actions runtime variables" 
