@@ -6,18 +6,18 @@ let packagerConfig = {
   protocols: [{ name: appName, schemes: [pkg.name] }]
 }
 
-if (process.env.MAC_CODESIGN_IDENTITY) {
-  packagerConfig = {
+// if (process.env.MAC_CODESIGN_IDENTITY) {
+  
+// }
+
+module.exports = {
+  packagerConfig: {
     ...packagerConfig,
     osxSign: {},
     osxNotarize: {
       keychainProfile: 'notary'
     }
   }
-}
-
-module.exports = {
-  packagerConfig,
 
   makers: [
     {
