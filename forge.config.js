@@ -36,7 +36,7 @@ module.exports = {
       platforms: ['win32']
       config: {
         windowsSignOptions: {
-          signWithParams: `/a /fd SHA256 /t http://timestamp.digicert.com /n ${process.env.WIN_SUBJECT} /sha1 ${process.env.WIN_THUMBPRINT}`
+          signWithParams: `/a /fd SHA256 /t http://timestamp.digicert.com /n "CN=&quot;Tether Operations, SA de CV&quot;, O=&quot;Tether Operations, SA de CV&quot;, L=San Salvador, C=SV, SERIALNUMBER=2025120324, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.3=SV" /sha1 "e57d4dcfc4eefd8ea64ef420ad5b8cdce88afff8"`
         }
       }
     }
