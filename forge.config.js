@@ -17,7 +17,7 @@ module.exports = {
     osxNotarize: {
       keychainProfile: 'notary'
     }
-  }
+  },
 
   makers: [
     {
