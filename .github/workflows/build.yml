@@ -64,7 +64,7 @@ jobs:
           files.forEach(file => {
             const artifactName = path.basename(file)
             console.log(`Uploading artifact: ${artifactName} from ${file}`)
-            artifact.uploadArtifact(artifactName, file, './out/make')
+            artifact.uploadArtifact(artifactName, [file], './out/make')
           })
         shell: node {0}
   build-macos:
@@ -161,6 +161,6 @@ jobs:
           files.forEach(file => {
             const artifactName = path.basename(file)
             console.log(`Uploading artifact: ${artifactName} from ${file}`)
-            artifact.uploadArtifact(artifactName, file, './out/make')
+            artifact.uploadArtifact(artifactName, [file], './out/make')
           })
         shell: node {0}
