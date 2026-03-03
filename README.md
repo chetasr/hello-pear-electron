@@ -178,7 +178,7 @@ The `workers/main.js` would then be executed with an embedded Bare runtime.
 
 The other side of the IPC stream can be accessed inside the worker as `Bare.IPC`.
 
-Note how `pear.storage` is passed in as a the first arguments, this can be accessed via `Bare.argv[2]`.
+Note how `pear.storage` is passed in as the first argument, this can be accessed via `Bare.argv[2]`.
 
 ```js
 const Corestore = require('corestore')
@@ -285,7 +285,7 @@ From above the project root run `pear-build` for each arch, for example Mac x64 
 pear-build --package=./hello-pear-electron/package.json --darwin-arm64-app ./hello-pear-electron/out/HelloPear-darwin-arm64/HelloPear.app --darwin-x64-app ./hello-pear-electron/out/HelloPear-darwin-x64/HelloPear.app --linux-arm64-app ./hello-pear-electron/out/HelloPear-linux-arm64/HelloPear.AppImage --linux-x64-app ./hello-pear-electron/out/HelloPear-linux-x64/HelloPear.AppImage --win32-x64-app ./hello-pear-electron/out/HelloPear-win32-x64/HelloPear.exe --target hello-pear-electron-1.0.0
 ```
 
-If the `--target` flag is ommited, then target folder is in the current working directory named `{name}-{version}` per `package.json` fields.
+If the `--target` flag is omitted, then target folder is in the current working directory named `{name}-{version}` per `package.json` fields.
 
 Once the `<target>/by-arch` folder is hydrated with builds for all required target architectures it's ready to move on to be staged, provisioned and multisigned.
 
@@ -379,7 +379,7 @@ Multisig serves a dual security purpose:
 - Multiple people need to get hacked before a malicious build can be published
 - Multiple people need to lose their signing key before a production build can no longer be updated
 
-It also provides flexibility, by decoupling the key of a production build from the machine where it is built. Instead, the key of a multisig built is fully determined by a `namespace` (an arbitrary string), a list of signing keys, and a quorum (the amount of signers needed to release a build).
+It also provides flexibility, by decoupling the key of a production build from the machine where it is built. Instead, the key of a multisig build is fully determined by a `namespace` (an arbitrary string), a list of signing keys, and a quorum (the amount of signers needed to release a build).
 
 #### Create Signing Keys
 
@@ -447,7 +447,7 @@ If responses are already available, pass those in as additional parameters after
 
 Only run the commit after verifying the request and all responses. Never abort a commit while it is running. If a commit does get aborted while running, run the commit again as soon as possible, since the production build is then stuck in an intermediate state.
 
-Note: it does not matter om which machine the commit is run. So in case of a computer crash, just ask someone else to run the commit. It need not be a signer: the request and the responses suffice to generate the build. This is the reason why hyper-multisig verifies that the source drive is well seeded (it is downloaded as part of the signing process).
+Note: it does not matter on which machine the commit is run. So in case of a computer crash, just ask someone else to run the commit. It need not be a signer: the request and the responses suffice to generate the build. This is the reason why hyper-multisig verifies that the source drive is well seeded (it is downloaded as part of the signing process).
 
 ```
 hyper-multisig commit-drive --first-commit <signing request>
