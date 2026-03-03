@@ -9,13 +9,9 @@ let packagerConfig = {
 if (process.env.MAC_CODESIGN_IDENTITY) {
   packagerConfig = {
     ...packagerConfig,
-    osxSign: {
-      identity: process.env.MAC_CODESIGN_IDENTITY
-    },
+    osxSign: {},
     osxNotarize: {
-      appleId: process.env.APPLE_ID,
-      appleIdPassword: process.env.APPLE_PASSWORD,
-      teamId: process.env.TEAM_ID
+      keychainProfile: 'notary'
     }
   }
 }
