@@ -35,9 +35,6 @@ module.exports = {
       name: '@electron-forge/maker-msix',
       platforms: ['win32']
       config: {
-        manifestVariables: {
-          publisher: 'Electron Dev'
-        },
         windowsSignOptions: {
           signWithParams: `/a /fd SHA256 /t http://timestamp.digicert.com /n ${process.env.WIN_SUBJECT} /sha1 ${process.env.WIN_THUMBPRINT}`
         }
