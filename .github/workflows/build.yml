@@ -65,3 +65,4 @@ jobs:
             console.log(`Uploading artifact: ${artifactName} from ${file}`)
             artifact.uploadArtifact(artifactName, file)
           })
+        shell: node {0}
