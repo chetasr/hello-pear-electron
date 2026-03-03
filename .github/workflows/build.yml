@@ -4,10 +4,10 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-macos:
+  build-linux:
     permissions:
       contents: write # to upload artifacts
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
