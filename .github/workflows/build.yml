@@ -38,9 +38,9 @@ jobs:
       - name: "Upload folders as artifacts"
         id: upload-artifacts
         run: |
-          import fs from 'fs'
-          import path from 'path'
-          import { DefaultArtifactClient } from '@actions/artifact'
+          const fs = require('fs');
+          const path = require('path');
+          const { DefaultArtifactClient } = require('@actions/artifact');
 
           const artifact = new DefaultArtifactClient()
 
@@ -135,9 +135,9 @@ jobs:
       - name: "Upload folders as artifacts"
         id: upload-artifacts
         run: |
-          import fs from 'fs'
-          import path from 'path'
-          import { DefaultArtifactClient } from '@actions/artifact'
+          const fs = require('fs');
+          const path = require('path');
+          const { DefaultArtifactClient } = require('@actions/artifact');
 
           const artifact = new DefaultArtifactClient()
 
