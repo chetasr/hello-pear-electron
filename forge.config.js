@@ -33,15 +33,17 @@ module.exports = {
     },
     {
       name: '@electron-forge/maker-msix',
-      platforms: ['win32']
       config: {
+        manifestVariables: {
+          publisher: 'CN=&quot;Tether Operations, SA de CV&quot;, O=&quot;Tether Operations, SA de CV&quot;, L=San Salvador, C=SV, SERIALNUMBER=2025120324, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.3=SV', 
+        },
         windowsSignOptions: {
-          signWithParams: `/a /fd SHA256 /t http://timestamp.digicert.com /n "CN=&quot;Tether Operations, SA de CV&quot;, O=&quot;Tether Operations, SA de CV&quot;, L=San Salvador, C=SV, SERIALNUMBER=2025120324, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.3=SV" /sha1 "e57d4dcfc4eefd8ea64ef420ad5b8cdce88afff8"`
+          certificateSha1: '874b95fdc8a490a3d3bab28643902948b2c7ad43',
+          timestampServer: 'http://timestamp.digicert.com'
         }
       }
     }
   ],
-
   plugins: [
     {
       name: 'electron-forge-plugin-universal-prebuilds',
