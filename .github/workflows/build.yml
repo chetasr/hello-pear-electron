@@ -169,7 +169,7 @@ jobs:
   build-win32:
     permissions:
       contents: write # to upload artifacts
-    runs-on: windows-latest # for testing
+    runs-on: self-hosted # self-hosted signer
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
