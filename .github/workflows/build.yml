@@ -187,8 +187,9 @@ jobs:
         id: install-actions-artifact-module
         run: |
           npm install @actions/artifact@2.3.2 --global
-          echo "NODE_PATH=$(npm root --quiet -g)" >> $GITHUB_ENV
-        shell: bash
+          $npmRoot = npm root --quiet -g
+          Add-Content -Path $env:GITHUB_ENV -Value "NODE_PATH=$npmRoot"
+        shell: pwsh
       
       - name: "Extract Actions runtime variables" 
         id: extract-runtime-environment-variables
