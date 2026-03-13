@@ -12,6 +12,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: samuelmeuli/action-snapcraft@v3
+        with:
+          channel: '7/stable'
       - uses: holepunchto/make-pear-app@main
   build-macos:
     permissions:
