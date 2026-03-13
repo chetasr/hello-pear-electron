@@ -9,12 +9,11 @@ jobs:
     permissions:
       contents: write # to upload artifacts
     runs-on: ubuntu-latest
+    env:
+      SNAPCRAFT_BUILD_ENVIRONMENT: host
     steps:
       - uses: actions/checkout@v4
-      - uses: canonical/setup-lxd@v0.1.2
-      - run: |
-          sudo snap install snapcraft --classic --channel=7.x
-          sudo snap set snapcraft provider=lxd
+      - run: sudo snap install snapcraft --classic --channel=7.x
       - uses: holepunchto/make-pear-app@main
   build-macos:
     permissions:
