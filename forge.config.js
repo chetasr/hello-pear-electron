@@ -34,7 +34,6 @@ module.exports = {
     {
       name: '@electron-forge/maker-snap',
       config: {
-        base: 'core22',
         features: {
           mpris: 'com.hello-pear-electron.app'
         },
