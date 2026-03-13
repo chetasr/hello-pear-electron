@@ -14,7 +14,10 @@ jobs:
       - uses: samuelmeuli/action-snapcraft@v3
         with:
           channel: '7.x'
-      - run: sudo snap install multipass
+      - name: Setup LXD
+        uses: canonical/setup-lxd@v0.1.2
+      - name: Configure Snapcraft provider
+        run: sudo snap set snapcraft provider=lxd
       - uses: holepunchto/make-pear-app@main
   build-macos:
     permissions:
