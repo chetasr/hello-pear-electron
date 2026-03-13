@@ -32,6 +32,16 @@ module.exports = {
       platforms: ['linux']
     },
     {
+      name: '@electron-forge/maker-snap',
+      config: {
+        features: {
+          mpris: 'com.hello-pear-electron.app'
+        },
+        summary: 'Hello Pear Electron'
+      },
+      platforms: ['linux']
+    },
+    {
       name: '@electron-forge/maker-msix',
       config: {
         manifestVariables: {
