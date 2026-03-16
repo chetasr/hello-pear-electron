@@ -11,14 +11,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: canonical/setup-lxd@v0.1.2
-        with:
-          channel: 5.0/stable
       - run: |
-          echo "/snap/bin" >> $GITHUB_PATH
-          sudo chmod a+rw /var/snap/lxd/common/lxd/unix.socket
-          sudo snap install snapcraft --classic --channel=7.x
-          sudo snap set snapcraft provider=lxd
+          sudo snap install snapcraft --classic --channel=7.x/stable
+          sudo mv /snap/bin/snapcraft /snap/bin/snapcraft-original
+          sudo tee /snap/bin/snapcraft << 'EOF'
+          #!/bin/bash
+          # Forcibly append the destructive-mode flag to skip containers
+          exec /snap/bin/snapcraft-original "$@" --destructive-mode
+          EOF
+          sudo chmod +x /snap/bin/snapcraft
       - uses: holepunchto/make-pear-app@main
   # build-macos:
   #   permissions:
