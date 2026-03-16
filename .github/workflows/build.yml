@@ -12,6 +12,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: canonical/setup-lxd@v0.1.2
+        with:
+          channel: 5.0/stable
       - run: |
           echo "/snap/bin" >> $GITHUB_PATH
           sudo chmod a+rw /var/snap/lxd/common/lxd/unix.socket
