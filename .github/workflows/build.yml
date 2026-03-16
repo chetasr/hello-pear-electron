@@ -15,7 +15,7 @@ jobs:
       - run: |
           sudo chmod a+rw /var/snap/lxd/common/lxd/unix.socket
           sudo snap install snapcraft --classic --channel=7.x
-          echo "SNAPCRAFT_BUILD_ENVIRONMENT=lxd" >> $GITHUB_ENV
+          sudo snap set snapcraft provider=lxd
       - uses: holepunchto/make-pear-app@main
   # build-macos:
   #   permissions:
