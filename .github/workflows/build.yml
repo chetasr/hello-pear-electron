@@ -10,20 +10,13 @@ jobs:
       contents: write # to upload artifacts
     runs-on: ubuntu-latest
     env:
-      SNAPCRAFT_BUILD_ENVIRONMENT: host
+      SNAPCRAFT_BUILD_ENVIRONMENT: lxd
     steps:
       - uses: actions/checkout@v4
       - uses: canonical/setup-lxd@v0.1.2
-      - run: sudo snap install snapcraft --classic --channel=7.x
       - run: |
-          sudo mv /snap/bin/snapcraft /snap/bin/snapcraft-bin
-          sudo tee /snap/bin/snapcraft << 'EOF'
-          #!/bin/bash
-          export SNAPCRAFT_BUILD_ENVIRONMENT=lxd
-          printf -v cmd_str '%q ' /snap/bin/snapcraft-bin "$@"
-          exec sg lxd -c "$cmd_str"
-          EOF
-          sudo chmod +x /snap/bin/snapcraft
+          sudo chmod a+rw /var/snap/lxd/common/lxd/unix.socket
+          sudo snap install snapcraft --classic --channel=7.x
       - uses: holepunchto/make-pear-app@main
   # build-macos:
   #   permissions:
