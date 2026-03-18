@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - releases/v*
+      - support-macos-api-based-notarization
 
 jobs:
   # build-linux:
