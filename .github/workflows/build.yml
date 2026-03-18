@@ -35,7 +35,7 @@ jobs:
           channel: experimental
           macos_certificate_base64: ${{ secrets.APPLE_DISTRIBUTION_CERTIFICATE }}
           macos_p12_password: ${{ secrets.P12_PASSWORD }}
-          macos_codesign_identity: ${{ secrets.MAC_CODESIGN_IDENTITY }}
+          macos_codesign_identity: ${{ secrets.MACOS_SIGNING_IDENTITY }}
           macos_notarization_method: appstore_connect
           macos_api_key_base64: ${{ secrets.APIKEY_BASE64 }}
           macos_api_key_id: S3AG2UXSC5
