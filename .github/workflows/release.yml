@@ -1,0 +1,27 @@
+name: Cut Release Branch
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  create-release-branch:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Create release branch
+        if: endsWith(github.ref_name, '.0')
+        run: |
+          BRANCH=$(git branch -r --contains ${{ github.sha }} | grep 'origin/main' | head -1)
+          if [ -z "$BRANCH" ]; then
+            echo "Tag not on main, skipping."
+            exit 0
+          fi
+          BRANCH_NAME=$(echo "${{ github.ref_name }}" | sed 's/\.[^.]*$//')
+          git checkout -b release/$BRANCH_NAME
+          git push origin release/$BRANCH_NAME
