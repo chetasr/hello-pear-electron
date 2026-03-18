@@ -13,7 +13,7 @@ if (process.env.MAC_CODESIGN_IDENTITY) {
       identity: process.env.MAC_CODESIGN_IDENTITY
     },
     osxNotarize: {
-      keychainProfile: 'notary'
+      keychainProfile: process.env.KEYCHAIN_PROFILE
     }
   }
 }
